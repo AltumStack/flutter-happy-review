@@ -2,7 +2,7 @@
 
 ## Status
 
-Accepted
+Superseded by [ADR-006](006-adopt-github-flow.md) (base branch and assignee sections only; labels, template, and naming rules still apply)
 
 ## Date
 

@@ -7,7 +7,7 @@ env:
 
 jobs:
   test_with_coverage:
-    name: 🧪 Unit Tests
+    name: Unit Tests
     runs-on: ubuntu-latest
     timeout-minutes: 20
 
