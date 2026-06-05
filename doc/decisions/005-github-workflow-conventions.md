@@ -22,12 +22,12 @@ All GitHub operations (issues, PRs, project board management) are performed via 
 
 ```bash
 # Issues
-gh issue create --title "..." --label "feature,tier-1" --assignee "AMarturelo" --body "..."
+gh issue create --title "..." --label "feature,tier-1" --assignee "albertomarturelo" --body "..."
 gh issue list --state open --limit 10
 gh issue edit <number> --add-project "Happy Review Roadmap"
 
 # Pull requests
-gh pr create --base develop --title "..." --assignee AMarturelo --label "feature,tier-1" --body "..."
+gh pr create --base master --title "..." --assignee albertomarturelo --label "feature,tier-1" --body "..."
 gh pr list --state open
 
 # Project board — move issue to "In Progress"
@@ -100,10 +100,10 @@ Located at `.github/PULL_REQUEST_TEMPLATE.md`. Every PR must fill in:
 
 | Field | Rule | `gh` flag |
 |-------|------|-----------|
-| **Assignee** | Always `AMarturelo` | `--assignee AMarturelo` |
+| **Assignee** | Always `albertomarturelo` | `--assignee albertomarturelo` |
 | **Project** | Always link to `Happy Review Roadmap` (#3) | `gh issue edit --add-project` or PR body |
 | **Labels** | Carry over from linked issue | `--label "feature,tier-1"` |
-| **Base branch** | `develop` (never `main`) | `--base develop` |
+| **Base branch** | `master` (GitHub Flow per ADR-006) | `--base master` |
 | **Linked issue** | Use `Closes #N` in PR body for auto-close | Include in `--body` |
 
 ### Branch Naming
@@ -119,14 +119,14 @@ Located at `.github/PULL_REQUEST_TEMPLATE.md`. Every PR must fill in:
 
 1. `gh issue create` with type + tier labels and assignee
 2. `gh issue edit <N> --add-project "Happy Review Roadmap"` and move to "In Progress"
-3. `git checkout -b <prefix>/<name> develop`
-4. Implement, then `gh pr create --base develop` with template, labels, assignee, and `Closes #N`
+3. `git checkout -b <prefix>/<name> master`
+4. Implement, then `gh pr create --base master` with template, labels, assignee, and `Closes #N`
 5. CI must pass: `flutter analyze`, `flutter test`, `dart pub publish --dry-run`
-6. Merge to `develop`; issue auto-closes via `Closes #N`
+6. Merge to `master`; issue auto-closes via `Closes #N`
 
 ### Release Flow
 
-1. `git checkout -b release/x.y.z develop`
+1. `git checkout -b release/x.y.z master`
 2. Bump version in `pubspec.yaml`, update CHANGELOG and README
 3. `gh pr create --base master` with release labels
 4. Merge to `master`, tag (`git tag vx.y.z`), push tag, publish to pub.dev
