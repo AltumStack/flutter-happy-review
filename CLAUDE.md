@@ -50,7 +50,7 @@ The example app is at `happy_review/example/` and can be run with `flutter run` 
 ## Critical Rules
 
 - Never add external storage dependencies to the library — use the adapter pattern (see ADR-002)
-- All PRs target `develop`, never `main`
+- All PRs target `master` (GitHub Flow — see ADR-006)
 - No `Co-Authored-By` lines in commits — this is a community open-source library
 - Library tests (`test/`) are for library internals only; example tests (`example/test/`) are for end-to-end scenarios
 - Update `doc/CURRENT_STATUS.md` at the end of every work session

@@ -26,12 +26,14 @@
 
 ## Git & PR Conventions
 
-- **Base branch**: `develop` (all PRs target `develop`, not `main`)
+- **Workflow**: GitHub Flow — short-lived feature branches off `master`, PR back to `master` (see ADR-006)
+- **Base branch**: `master` (all PRs target `master`)
 - **Commit messages**: No `Co-Authored-By` lines — this is a community open-source library
-- **PR assignee**: Always `AMarturelo`
+- **PR assignee**: Always `albertomarturelo`
 - **PR project**: Always link to `Happy Review Roadmap` (#3)
 - **PR labels**: Carry over from linked issue
 - **PR template**: Located at `.github/PULL_REQUEST_TEMPLATE.md`
+- **Branch protection**: `master` requires 1 PR approval, `Unit Tests` check passing, conversations resolved, no force push, no deletion
 
 ## File Organization
 
